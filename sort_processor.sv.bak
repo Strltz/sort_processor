@@ -1,0 +1,54 @@
+module sort_processor(
+    input              clk,
+    input              rst,
+    input        [3:0] key,
+    output logic [3:0] led,
+    output logic [7:0] symbol_7seg,
+    output logic [3:0] number_7seg
+);
+
+    logic [3:0] cnt;
+
+	 
+	 //   --a--
+    //  |     |
+    //  f     b
+    //  |     |
+    //   --g--
+    //  |     |
+    //  e     c
+    //  |     |
+    //   --d--  h
+	 
+	 
+    always_ff @(posedge clk or posedge rst)
+        if (rst)
+		    cnt <= 4'b0001;
+        else
+            cnt <= {cnt[2], cnt[1], cnt[0], cnt[3]};    
+
+    typedef enum bit [7:0]
+    {
+        lN = 8'b0110_1110,
+        lE = 8'b1001_1110,
+        lG = 8'b1000_1100,
+        lR = 8'b1000_1110,
+        l_ = 8'b0000_0000
+    }
+    seven_seg_encoding_table;
+
+    seven_seg_encoding_table symbol;
+
+    always_comb
+        case(cnt)
+        4'b0001: symbol = lN;
+        4'b0010: symbol = lN;
+        4'b0100: symbol = lN;
+        4'b1000: symbol = lN;
+        default: symbol = l_;
+        endcase
+
+    assign symbol_7seg = symbol;
+    assign number_7seg = cnt;
+
+endmodule
