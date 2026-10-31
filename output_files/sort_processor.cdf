@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP4CE6E22) Path("/home/savva/Desktop/ASVT/DZ3/dz3_SV/output_files/") File("sort_processor.sof") MfrSpec(OpMask(1));
+		Device PartName(EP4CE6E22) Path("/home/savva/Desktop/ASVT/DZ3/sort_processor/output_files/") File("sort_processor.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

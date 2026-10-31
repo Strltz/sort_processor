@@ -20,18 +20,6 @@ module sort_processor(
 	 assign _key        = ~key;
 	 assign led         = ~_led;
 	 assign symbol_7seg = ~_symbol_7seg;
-	 assign number_7seg = ~_number_7seg;
-	 
-	 assign _led = _key;
-	 
-
-    show_bin_7seg (
-        .clk         (_clk),
-        .rst         (_rst),
-        .enb         (1'b1),
-		  .data        (_key),
-        .symbol_7seg (_symbol_7seg),
-        .number_7seg (_number_7seg)
-    );
+	 assign number_7seg = ~_number_7seg;	 
 
 endmodule

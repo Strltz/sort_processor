@@ -92,8 +92,8 @@ TDO                          : 20        : output :                   :         
 nCE                          : 21        :        :                   :         : 1         :                
 GND                          : 22        : gnd    :                   :         :           :                
 clk                          : 23        : input  : 2.5 V             :         : 1         : Y              
-rst                          : 24        : input  : 2.5 V             :         : 2         : N              
-GND+                         : 25        :        :                   :         : 2         :                
+GND+                         : 24        :        :                   :         : 2         :                
+rst                          : 25        : input  : 2.5 V             :         : 2         : Y              
 VCCIO2                       : 26        : power  :                   : 2.5V    : 2         :                
 GND                          : 27        : gnd    :                   :         :           :                
 RESERVED_INPUT_WITH_WEAK_PULLUP : 28        :        :                   :         : 2         :                

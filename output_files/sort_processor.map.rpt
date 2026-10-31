@@ -1,5 +1,5 @@
 Analysis & Synthesis report for sort_processor
-Fri Oct 16 13:32:21 2026
+Sun Oct 25 10:38:21 2026
 Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
 
 
@@ -13,13 +13,10 @@ Quartus Prime Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Registers Removed During Synthesis
-  9. General Register Statistics
- 10. Inverted Register Statistics
- 11. Port Connectivity Checks: "show_bin_7seg:comb_29"
- 12. Post-Synthesis Netlist Statistics for Top Partition
- 13. Elapsed Time Per Partition
- 14. Analysis & Synthesis Messages
+  8. General Register Statistics
+  9. Post-Synthesis Netlist Statistics for Top Partition
+ 10. Elapsed Time Per Partition
+ 11. Analysis & Synthesis Messages
 
 
 
@@ -46,15 +43,15 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Oct 16 13:32:21 2026       ;
+; Analysis & Synthesis Status        ; Successful - Sun Oct 25 10:38:21 2026       ;
 ; Quartus Prime Version              ; 21.1.1 Build 850 06/23/2022 SJ Lite Edition ;
 ; Revision Name                      ; sort_processor                              ;
 ; Top-level Entity Name              ; sort_processor                              ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 30                                          ;
-;     Total combinational functions  ; 28                                          ;
-;     Dedicated logic registers      ; 20                                          ;
-; Total registers                    ; 20                                          ;
+; Total logic elements               ; 0                                           ;
+;     Total combinational functions  ; 0                                           ;
+;     Dedicated logic registers      ; 0                                           ;
+; Total registers                    ; 0                                           ;
 ; Total pins                         ; 22                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
@@ -158,75 +155,61 @@ https://fpgasoftware.intel.com/eula.
 ; Maximum allowed            ; 8           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 8           ;
+; Maximum used               ; 1           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-8         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                          ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                      ; Library ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------+---------+
-; sort_processor.sv                ; yes             ; User SystemVerilog HDL File  ; /home/savva/Desktop/ASVT/DZ3/dz3_SV/sort_processor.sv             ;         ;
-; output_files/show_bin_7seg.sv    ; yes             ; User SystemVerilog HDL File  ; /home/savva/Desktop/ASVT/DZ3/dz3_SV/output_files/show_bin_7seg.sv ;         ;
-+----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                      ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                  ; Library ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------+---------+
+; sort_processor.sv                ; yes             ; User SystemVerilog HDL File  ; /home/savva/Desktop/ASVT/DZ3/sort_processor/sort_processor.sv ;         ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary             ;
-+---------------------------------------------+-----------+
-; Resource                                    ; Usage     ;
-+---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 30        ;
-;                                             ;           ;
-; Total combinational functions               ; 28        ;
-; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 9         ;
-;     -- 3 input functions                    ; 2         ;
-;     -- <=2 input functions                  ; 17        ;
-;                                             ;           ;
-; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 14        ;
-;     -- arithmetic mode                      ; 14        ;
-;                                             ;           ;
-; Total registers                             ; 20        ;
-;     -- Dedicated logic registers            ; 20        ;
-;     -- I/O registers                        ; 0         ;
-;                                             ;           ;
-; I/O pins                                    ; 22        ;
-;                                             ;           ;
-; Embedded Multiplier 9-bit elements          ; 0         ;
-;                                             ;           ;
-; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 20        ;
-; Total fan-out                               ; 173       ;
-; Average fan-out                             ; 1.88      ;
-+---------------------------------------------+-----------+
++-----------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary         ;
++---------------------------------------------+-------+
+; Resource                                    ; Usage ;
++---------------------------------------------+-------+
+;                                             ;       ;
+; Total combinational functions               ; 0     ;
+; Logic element usage by number of LUT inputs ;       ;
+;     -- 4 input functions                    ; 0     ;
+;     -- 3 input functions                    ; 0     ;
+;     -- <=2 input functions                  ; 0     ;
+;                                             ;       ;
+; Logic elements by mode                      ;       ;
+;     -- normal mode                          ; 0     ;
+;     -- arithmetic mode                      ; 0     ;
+;                                             ;       ;
+; Total registers                             ; 0     ;
+;     -- Dedicated logic registers            ; 0     ;
+;     -- I/O registers                        ; 0     ;
+;                                             ;       ;
+; I/O pins                                    ; 22    ;
+;                                             ;       ;
+; Embedded Multiplier 9-bit elements          ; 0     ;
+;                                             ;       ;
+; Maximum fan-out node                        ; clk   ;
+; Maximum fan-out                             ; 1     ;
+; Total fan-out                               ; 22    ;
+; Average fan-out                             ; 0.50  ;
++---------------------------------------------+-------+
 
 
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                           ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------+----------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                   ; Entity Name    ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------+----------------+--------------+
-; |sort_processor            ; 28 (0)              ; 20 (0)                    ; 0           ; 0            ; 0       ; 0         ; 22   ; 0            ; |sort_processor                       ; sort_processor ; work         ;
-;    |show_bin_7seg:comb_29| ; 28 (28)             ; 20 (20)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |sort_processor|show_bin_7seg:comb_29 ; show_bin_7seg  ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------+----------------+--------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+----------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name    ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+----------------+--------------+
+; |sort_processor            ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 22   ; 0            ; |sort_processor     ; sort_processor ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+----------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-+-------------------------------------------------------------+
-; Registers Removed During Synthesis                          ;
-+----------------------------------------+--------------------+
-; Register name                          ; Reason for Removal ;
-+----------------------------------------+--------------------+
-; show_bin_7seg:comb_29|cnt[16..31]      ; Lost fanout        ;
-; Total Number of Removed Registers = 16 ;                    ;
-+----------------------------------------+--------------------+
 
 
 +------------------------------------------------------+
@@ -234,33 +217,14 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 20    ;
+; Total registers                              ; 0     ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 20    ;
+; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 4     ;
+; Number of registers using Clock Enable       ; 0     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
-
-
-+--------------------------------------------------+
-; Inverted Register Statistics                     ;
-+----------------------------------------+---------+
-; Inverted Register                      ; Fan out ;
-+----------------------------------------+---------+
-; show_bin_7seg:comb_29|shift_reg[0]     ; 5       ;
-; Total number of inverted registers = 1 ;         ;
-+----------------------------------------+---------+
-
-
-+---------------------------------------------------+
-; Port Connectivity Checks: "show_bin_7seg:comb_29" ;
-+------+-------+----------+-------------------------+
-; Port ; Type  ; Severity ; Details                 ;
-+------+-------+----------+-------------------------+
-; enb  ; Input ; Info     ; Stuck at VCC            ;
-+------+-------+----------+-------------------------+
 
 
 +-----------------------------------------------------+
@@ -269,21 +233,12 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 22                          ;
-; cycloneiii_ff         ; 20                          ;
-;     CLR               ; 16                          ;
-;     ENA CLR           ; 4                           ;
-; cycloneiii_lcell_comb ; 34                          ;
-;     arith             ; 14                          ;
-;         2 data inputs ; 13                          ;
-;         3 data inputs ; 1                           ;
-;     normal            ; 20                          ;
+; cycloneiii_lcell_comb ; 1                           ;
+;     normal            ; 1                           ;
 ;         0 data inputs ; 1                           ;
-;         1 data inputs ; 9                           ;
-;         3 data inputs ; 1                           ;
-;         4 data inputs ; 9                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 4.00                        ;
-; Average LUT depth     ; 2.16                        ;
+; Max LUT depth         ; 0.00                        ;
+; Average LUT depth     ; 0.00                        ;
 +-----------------------+-----------------------------+
 
 
@@ -302,34 +257,62 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition
-    Info: Processing started: Fri Oct 16 13:32:17 2026
+    Info: Processing started: Sun Oct 25 10:38:16 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off sort_processor -c sort_processor
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 8 of the 8 processors detected
 Info (12021): Found 1 design units, including 1 entities, in source file sort_processor.sv
-    Info (12023): Found entity 1: sort_processor File: /home/savva/Desktop/ASVT/DZ3/dz3_SV/sort_processor.sv Line: 1
-Info (12021): Found 1 design units, including 1 entities, in source file output_files/show_bin_7seg.sv
-    Info (12023): Found entity 1: show_bin_7seg File: /home/savva/Desktop/ASVT/DZ3/dz3_SV/output_files/show_bin_7seg.sv Line: 3
-Critical Warning (10846): Verilog HDL Instantiation warning at sort_processor.sv(33): instance has no name File: /home/savva/Desktop/ASVT/DZ3/dz3_SV/sort_processor.sv Line: 33
+    Info (12023): Found entity 1: sort_processor File: /home/savva/Desktop/ASVT/DZ3/sort_processor/sort_processor.sv Line: 3
+Info (12021): Found 2 design units, including 2 entities, in source file modules/show_hex_7seg.sv
+    Info (12023): Found entity 1: show_hex_7seg File: /home/savva/Desktop/ASVT/DZ3/sort_processor/modules/show_hex_7seg.sv Line: 3
+    Info (12023): Found entity 2: hex_7seg_decoder File: /home/savva/Desktop/ASVT/DZ3/sort_processor/modules/show_hex_7seg.sv Line: 76
+Info (12021): Found 1 design units, including 1 entities, in source file modules/show_bin_7seg.sv
+    Info (12023): Found entity 1: show_bin_7seg File: /home/savva/Desktop/ASVT/DZ3/sort_processor/modules/show_bin_7seg.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file modules/registers_RON.sv
+    Info (12023): Found entity 1: registers_RON File: /home/savva/Desktop/ASVT/DZ3/sort_processor/modules/registers_RON.sv Line: 3
 Info (12127): Elaborating entity "sort_processor" for the top level hierarchy
-Info (12128): Elaborating entity "show_bin_7seg" for hierarchy "show_bin_7seg:comb_29" File: /home/savva/Desktop/ASVT/DZ3/dz3_SV/sort_processor.sv Line: 33
-Info (10264): Verilog HDL Case Statement information at show_bin_7seg.sv(52): all case item expressions in this case statement are onehot File: /home/savva/Desktop/ASVT/DZ3/dz3_SV/output_files/show_bin_7seg.sv Line: 52
-Info (13000): Registers with preset signals will power-up high File: /home/savva/Desktop/ASVT/DZ3/dz3_SV/output_files/show_bin_7seg.sv Line: 27
-Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (10036): Verilog HDL or VHDL warning at sort_processor.sv(12): object "_clk" assigned a value but never read File: /home/savva/Desktop/ASVT/DZ3/sort_processor/sort_processor.sv Line: 12
+Warning (10036): Verilog HDL or VHDL warning at sort_processor.sv(13): object "_rst" assigned a value but never read File: /home/savva/Desktop/ASVT/DZ3/sort_processor/sort_processor.sv Line: 13
+Warning (10036): Verilog HDL or VHDL warning at sort_processor.sv(14): object "_key" assigned a value but never read File: /home/savva/Desktop/ASVT/DZ3/sort_processor/sort_processor.sv Line: 14
+Warning (10858): Verilog HDL warning at sort_processor.sv(15): object _led used but never assigned File: /home/savva/Desktop/ASVT/DZ3/sort_processor/sort_processor.sv Line: 15
+Warning (10858): Verilog HDL warning at sort_processor.sv(16): object _symbol_7seg used but never assigned File: /home/savva/Desktop/ASVT/DZ3/sort_processor/sort_processor.sv Line: 16
+Warning (10858): Verilog HDL warning at sort_processor.sv(17): object _number_7seg used but never assigned File: /home/savva/Desktop/ASVT/DZ3/sort_processor/sort_processor.sv Line: 17
+Warning (10030): Net "_led" at sort_processor.sv(15) has no driver or initial value, using a default initial value '0' File: /home/savva/Desktop/ASVT/DZ3/sort_processor/sort_processor.sv Line: 15
+Warning (10030): Net "_symbol_7seg" at sort_processor.sv(16) has no driver or initial value, using a default initial value '0' File: /home/savva/Desktop/ASVT/DZ3/sort_processor/sort_processor.sv Line: 16
+Warning (10030): Net "_number_7seg" at sort_processor.sv(17) has no driver or initial value, using a default initial value '0' File: /home/savva/Desktop/ASVT/DZ3/sort_processor/sort_processor.sv Line: 17
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "symbol_7seg[0]" is stuck at VCC File: /home/savva/Desktop/ASVT/DZ3/dz3_SV/sort_processor.sv Line: 6
-Info (286030): Timing-Driven Synthesis is running
-Info (17049): 16 registers lost all their fanouts during netlist optimizations.
+    Warning (13410): Pin "led[0]" is stuck at VCC File: /home/savva/Desktop/ASVT/DZ3/sort_processor/sort_processor.sv Line: 7
+    Warning (13410): Pin "led[1]" is stuck at VCC File: /home/savva/Desktop/ASVT/DZ3/sort_processor/sort_processor.sv Line: 7
+    Warning (13410): Pin "led[2]" is stuck at VCC File: /home/savva/Desktop/ASVT/DZ3/sort_processor/sort_processor.sv Line: 7
+    Warning (13410): Pin "led[3]" is stuck at VCC File: /home/savva/Desktop/ASVT/DZ3/sort_processor/sort_processor.sv Line: 7
+    Warning (13410): Pin "symbol_7seg[0]" is stuck at VCC File: /home/savva/Desktop/ASVT/DZ3/sort_processor/sort_processor.sv Line: 8
+    Warning (13410): Pin "symbol_7seg[1]" is stuck at VCC File: /home/savva/Desktop/ASVT/DZ3/sort_processor/sort_processor.sv Line: 8
+    Warning (13410): Pin "symbol_7seg[2]" is stuck at VCC File: /home/savva/Desktop/ASVT/DZ3/sort_processor/sort_processor.sv Line: 8
+    Warning (13410): Pin "symbol_7seg[3]" is stuck at VCC File: /home/savva/Desktop/ASVT/DZ3/sort_processor/sort_processor.sv Line: 8
+    Warning (13410): Pin "symbol_7seg[4]" is stuck at VCC File: /home/savva/Desktop/ASVT/DZ3/sort_processor/sort_processor.sv Line: 8
+    Warning (13410): Pin "symbol_7seg[5]" is stuck at VCC File: /home/savva/Desktop/ASVT/DZ3/sort_processor/sort_processor.sv Line: 8
+    Warning (13410): Pin "symbol_7seg[6]" is stuck at VCC File: /home/savva/Desktop/ASVT/DZ3/sort_processor/sort_processor.sv Line: 8
+    Warning (13410): Pin "symbol_7seg[7]" is stuck at VCC File: /home/savva/Desktop/ASVT/DZ3/sort_processor/sort_processor.sv Line: 8
+    Warning (13410): Pin "number_7seg[0]" is stuck at VCC File: /home/savva/Desktop/ASVT/DZ3/sort_processor/sort_processor.sv Line: 10
+    Warning (13410): Pin "number_7seg[1]" is stuck at VCC File: /home/savva/Desktop/ASVT/DZ3/sort_processor/sort_processor.sv Line: 10
+    Warning (13410): Pin "number_7seg[2]" is stuck at VCC File: /home/savva/Desktop/ASVT/DZ3/sort_processor/sort_processor.sv Line: 10
+    Warning (13410): Pin "number_7seg[3]" is stuck at VCC File: /home/savva/Desktop/ASVT/DZ3/sort_processor/sort_processor.sv Line: 10
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 52 device resources after synthesis - the final resource count might be different
+Warning (21074): Design contains 6 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "clk" File: /home/savva/Desktop/ASVT/DZ3/sort_processor/sort_processor.sv Line: 4
+    Warning (15610): No output dependent on input pin "rst" File: /home/savva/Desktop/ASVT/DZ3/sort_processor/sort_processor.sv Line: 5
+    Warning (15610): No output dependent on input pin "key[0]" File: /home/savva/Desktop/ASVT/DZ3/sort_processor/sort_processor.sv Line: 6
+    Warning (15610): No output dependent on input pin "key[1]" File: /home/savva/Desktop/ASVT/DZ3/sort_processor/sort_processor.sv Line: 6
+    Warning (15610): No output dependent on input pin "key[2]" File: /home/savva/Desktop/ASVT/DZ3/sort_processor/sort_processor.sv Line: 6
+    Warning (15610): No output dependent on input pin "key[3]" File: /home/savva/Desktop/ASVT/DZ3/sort_processor/sort_processor.sv Line: 6
+Info (21057): Implemented 22 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 6 input pins
     Info (21059): Implemented 16 output pins
-    Info (21061): Implemented 30 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 458 megabytes
-    Info: Processing ended: Fri Oct 16 13:32:21 2026
-    Info: Elapsed time: 00:00:04
-    Info: Total CPU time (on all processors): 00:00:12
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 34 warnings
+    Info: Peak virtual memory: 373 megabytes
+    Info: Processing ended: Sun Oct 25 10:38:21 2026
+    Info: Elapsed time: 00:00:05
+    Info: Total CPU time (on all processors): 00:00:11
 
 
