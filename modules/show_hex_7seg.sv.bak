@@ -1,5 +1,6 @@
-// show binary number on 7-segment indicator
-module show_bin_7seg(
+// show 4-bit binary number on 7-segment indicator
+
+module show_hex_7seg(
     input              clk,
     input              rst,
     input              enb,
