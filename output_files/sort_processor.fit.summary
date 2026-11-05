@@ -1,14 +1,14 @@
-Fitter Status : Successful - Sun Oct 25 10:38:24 2026
+Fitter Status : Successful - Tue Nov  3 20:18:53 2026
 Quartus Prime Version : 21.1.1 Build 850 06/23/2022 SJ Lite Edition
 Revision Name : sort_processor
 Top-level Entity Name : sort_processor
 Family : Cyclone IV E
 Device : EP4CE6E22C8
 Timing Models : Final
-Total logic elements : 0 / 6,272 ( 0 % )
-    Total combinational functions : 0 / 6,272 ( 0 % )
-    Dedicated logic registers : 0 / 6,272 ( 0 % )
-Total registers : 0
+Total logic elements : 5 / 6,272 ( < 1 % )
+    Total combinational functions : 5 / 6,272 ( < 1 % )
+    Dedicated logic registers : 4 / 6,272 ( < 1 % )
+Total registers : 4
 Total pins : 22 / 92 ( 24 % )
 Total virtual pins : 0
 Total memory bits : 0 / 276,480 ( 0 % )

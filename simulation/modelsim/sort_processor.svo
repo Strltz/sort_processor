@@ -17,7 +17,7 @@
 // PROGRAM "Quartus Prime"
 // VERSION "Version 21.1.1 Build 850 06/23/2022 SJ Lite Edition"
 
-// DATE "10/25/2026 10:38:29"
+// DATE "11/03/2026 20:19:00"
 
 // 
 // Device: Altera EP4CE6E22C8 Package TQFP144
@@ -44,12 +44,9 @@ output 	logic [7:0] symbol_7seg ;
 output 	logic [3:0] number_7seg ;
 
 // Design Ports Information
-// clk	=>  Location: PIN_23,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// rst	=>  Location: PIN_25,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // key[0]	=>  Location: PIN_88,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // key[1]	=>  Location: PIN_89,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // key[2]	=>  Location: PIN_90,	 I/O Standard: 2.5 V,	 Current Strength: Default
-// key[3]	=>  Location: PIN_91,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // led[0]	=>  Location: PIN_84,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // led[1]	=>  Location: PIN_85,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // led[2]	=>  Location: PIN_86,	 I/O Standard: 2.5 V,	 Current Strength: Default
@@ -66,6 +63,9 @@ output 	logic [3:0] number_7seg ;
 // number_7seg[1]	=>  Location: PIN_136,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // number_7seg[2]	=>  Location: PIN_135,	 I/O Standard: 2.5 V,	 Current Strength: Default
 // number_7seg[3]	=>  Location: PIN_133,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// clk	=>  Location: PIN_23,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// rst	=>  Location: PIN_25,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// key[3]	=>  Location: PIN_91,	 I/O Standard: 2.5 V,	 Current Strength: Default
 
 
 wire gnd;
@@ -79,12 +79,9 @@ assign unknown = 1'bx;
 tri1 devclrn;
 tri1 devpor;
 tri1 devoe;
-wire \clk~input_o ;
-wire \rst~input_o ;
 wire \key[0]~input_o ;
 wire \key[1]~input_o ;
 wire \key[2]~input_o ;
-wire \key[3]~input_o ;
 wire \led[0]~output_o ;
 wire \led[1]~output_o ;
 wire \led[2]~output_o ;
@@ -101,6 +98,20 @@ wire \number_7seg[0]~output_o ;
 wire \number_7seg[1]~output_o ;
 wire \number_7seg[2]~output_o ;
 wire \number_7seg[3]~output_o ;
+wire \clk~input_o ;
+wire \clk~inputclkctrl_outclk ;
+wire \states_sort_processor|state_cur.S0~feeder_combout ;
+wire \rst~input_o ;
+wire \rst~inputclkctrl_outclk ;
+wire \key[3]~input_o ;
+wire \strobe_key3|prev_in_sign~0_combout ;
+wire \strobe_key3|prev_in_sign~q ;
+wire \states_sort_processor|state_cur~16_combout ;
+wire \states_sort_processor|state_cur.S0~q ;
+wire \states_sort_processor|state_cur.Enter_nums~0_combout ;
+wire \states_sort_processor|state_cur.Enter_nums~q ;
+wire \states_sort_processor|state_cur.Save_nums~q ;
+wire \states_sort_processor|current_state~0_combout ;
 
 
 hard_block auto_generated_inst(
@@ -110,7 +121,7 @@ hard_block auto_generated_inst(
 
 // Location: IOOBUF_X34_Y9_N16
 cycloneive_io_obuf \led[0]~output (
-	.i(vcc),
+	.i(\states_sort_processor|current_state~0_combout ),
 	.oe(vcc),
 	.seriesterminationcontrol(16'b0000000000000000),
 	.devoe(devoe),
@@ -326,6 +337,36 @@ defparam \clk~input .bus_hold = "false";
 defparam \clk~input .simulate_z_as = "z";
 // synopsys translate_on
 
+// Location: CLKCTRL_G2
+cycloneive_clkctrl \clk~inputclkctrl (
+	.ena(vcc),
+	.inclk({vcc,vcc,vcc,\clk~input_o }),
+	.clkselect(2'b00),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.outclk(\clk~inputclkctrl_outclk ));
+// synopsys translate_off
+defparam \clk~inputclkctrl .clock_type = "global clock";
+defparam \clk~inputclkctrl .ena_register_mode = "none";
+// synopsys translate_on
+
+// Location: LCCOMB_X33_Y11_N18
+cycloneive_lcell_comb \states_sort_processor|state_cur.S0~feeder (
+// Equation(s):
+// \states_sort_processor|state_cur.S0~feeder_combout  = VCC
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(gnd),
+	.combout(\states_sort_processor|state_cur.S0~feeder_combout ),
+	.cout());
+// synopsys translate_off
+defparam \states_sort_processor|state_cur.S0~feeder .lut_mask = 16'hFFFF;
+defparam \states_sort_processor|state_cur.S0~feeder .sum_lutc_input = "datac";
+// synopsys translate_on
+
 // Location: IOIBUF_X0_Y11_N22
 cycloneive_io_ibuf \rst~input (
 	.i(rst),
@@ -334,6 +375,173 @@ cycloneive_io_ibuf \rst~input (
 // synopsys translate_off
 defparam \rst~input .bus_hold = "false";
 defparam \rst~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: CLKCTRL_G3
+cycloneive_clkctrl \rst~inputclkctrl (
+	.ena(vcc),
+	.inclk({vcc,vcc,vcc,\rst~input_o }),
+	.clkselect(2'b00),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.outclk(\rst~inputclkctrl_outclk ));
+// synopsys translate_off
+defparam \rst~inputclkctrl .clock_type = "global clock";
+defparam \rst~inputclkctrl .ena_register_mode = "none";
+// synopsys translate_on
+
+// Location: IOIBUF_X34_Y12_N1
+cycloneive_io_ibuf \key[3]~input (
+	.i(key[3]),
+	.ibar(gnd),
+	.o(\key[3]~input_o ));
+// synopsys translate_off
+defparam \key[3]~input .bus_hold = "false";
+defparam \key[3]~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: LCCOMB_X33_Y11_N10
+cycloneive_lcell_comb \strobe_key3|prev_in_sign~0 (
+// Equation(s):
+// \strobe_key3|prev_in_sign~0_combout  = (\rst~input_o  & ((!\key[3]~input_o ))) # (!\rst~input_o  & (\strobe_key3|prev_in_sign~q ))
+
+	.dataa(\rst~input_o ),
+	.datab(gnd),
+	.datac(\strobe_key3|prev_in_sign~q ),
+	.datad(\key[3]~input_o ),
+	.cin(gnd),
+	.combout(\strobe_key3|prev_in_sign~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \strobe_key3|prev_in_sign~0 .lut_mask = 16'h50FA;
+defparam \strobe_key3|prev_in_sign~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X33_Y11_N11
+dffeas \strobe_key3|prev_in_sign (
+	.clk(!\clk~inputclkctrl_outclk ),
+	.d(\strobe_key3|prev_in_sign~0_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\strobe_key3|prev_in_sign~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \strobe_key3|prev_in_sign .is_wysiwyg = "true";
+defparam \strobe_key3|prev_in_sign .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X33_Y11_N12
+cycloneive_lcell_comb \states_sort_processor|state_cur~16 (
+// Equation(s):
+// \states_sort_processor|state_cur~16_combout  = (!\key[3]~input_o  & (\rst~input_o  & !\strobe_key3|prev_in_sign~q ))
+
+	.dataa(\key[3]~input_o ),
+	.datab(gnd),
+	.datac(\rst~input_o ),
+	.datad(\strobe_key3|prev_in_sign~q ),
+	.cin(gnd),
+	.combout(\states_sort_processor|state_cur~16_combout ),
+	.cout());
+// synopsys translate_off
+defparam \states_sort_processor|state_cur~16 .lut_mask = 16'h0050;
+defparam \states_sort_processor|state_cur~16 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X33_Y11_N19
+dffeas \states_sort_processor|state_cur.S0 (
+	.clk(!\clk~inputclkctrl_outclk ),
+	.d(\states_sort_processor|state_cur.S0~feeder_combout ),
+	.asdata(vcc),
+	.clrn(\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\states_sort_processor|state_cur~16_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\states_sort_processor|state_cur.S0~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \states_sort_processor|state_cur.S0 .is_wysiwyg = "true";
+defparam \states_sort_processor|state_cur.S0 .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X33_Y11_N8
+cycloneive_lcell_comb \states_sort_processor|state_cur.Enter_nums~0 (
+// Equation(s):
+// \states_sort_processor|state_cur.Enter_nums~0_combout  = !\states_sort_processor|state_cur.S0~q 
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(\states_sort_processor|state_cur.S0~q ),
+	.cin(gnd),
+	.combout(\states_sort_processor|state_cur.Enter_nums~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \states_sort_processor|state_cur.Enter_nums~0 .lut_mask = 16'h00FF;
+defparam \states_sort_processor|state_cur.Enter_nums~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X33_Y11_N9
+dffeas \states_sort_processor|state_cur.Enter_nums (
+	.clk(!\clk~inputclkctrl_outclk ),
+	.d(\states_sort_processor|state_cur.Enter_nums~0_combout ),
+	.asdata(vcc),
+	.clrn(\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(\states_sort_processor|state_cur~16_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\states_sort_processor|state_cur.Enter_nums~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \states_sort_processor|state_cur.Enter_nums .is_wysiwyg = "true";
+defparam \states_sort_processor|state_cur.Enter_nums .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X33_Y11_N21
+dffeas \states_sort_processor|state_cur.Save_nums (
+	.clk(!\clk~inputclkctrl_outclk ),
+	.d(gnd),
+	.asdata(\states_sort_processor|state_cur.Enter_nums~q ),
+	.clrn(\rst~inputclkctrl_outclk ),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(vcc),
+	.ena(\states_sort_processor|state_cur~16_combout ),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\states_sort_processor|state_cur.Save_nums~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam \states_sort_processor|state_cur.Save_nums .is_wysiwyg = "true";
+defparam \states_sort_processor|state_cur.Save_nums .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X33_Y11_N20
+cycloneive_lcell_comb \states_sort_processor|current_state~0 (
+// Equation(s):
+// \states_sort_processor|current_state~0_combout  = (\states_sort_processor|state_cur.Save_nums~q ) # (!\states_sort_processor|state_cur.S0~q )
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(\states_sort_processor|state_cur.Save_nums~q ),
+	.datad(\states_sort_processor|state_cur.S0~q ),
+	.cin(gnd),
+	.combout(\states_sort_processor|current_state~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \states_sort_processor|current_state~0 .lut_mask = 16'hF0FF;
+defparam \states_sort_processor|current_state~0 .sum_lutc_input = "datac";
 // synopsys translate_on
 
 // Location: IOIBUF_X34_Y12_N22
@@ -364,16 +572,6 @@ cycloneive_io_ibuf \key[2]~input (
 // synopsys translate_off
 defparam \key[2]~input .bus_hold = "false";
 defparam \key[2]~input .simulate_z_as = "z";
-// synopsys translate_on
-
-// Location: IOIBUF_X34_Y12_N1
-cycloneive_io_ibuf \key[3]~input (
-	.i(key[3]),
-	.ibar(gnd),
-	.o(\key[3]~input_o ));
-// synopsys translate_off
-defparam \key[3]~input .bus_hold = "false";
-defparam \key[3]~input .simulate_z_as = "z";
 // synopsys translate_on
 
 assign led[0] = \led[0]~output_o ;
