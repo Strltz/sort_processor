@@ -1,11 +1,11 @@
 |sort_processor
-clk => ~NO_FANOUT~
-rst => ~NO_FANOUT~
+clk => _clk.IN2
+rst => rst.IN1
 key[0] => ~NO_FANOUT~
 key[1] => ~NO_FANOUT~
 key[2] => ~NO_FANOUT~
-key[3] => ~NO_FANOUT~
-led[0] <= <VCC>
+key[3] => _key[3].IN1
+led[0] <= main_fsm:states_sort_processor.current_state
 led[1] <= <VCC>
 led[2] <= <VCC>
 led[3] <= <VCC>
@@ -21,5 +21,26 @@ number_7seg[0] <= <VCC>
 number_7seg[1] <= <VCC>
 number_7seg[2] <= <VCC>
 number_7seg[3] <= <VCC>
+
+
+|sort_processor|strobe_sign:strobe_key3
+clk => prev_in_sign.CLK
+enb => prev_in_sign.ENA
+in_sign => out_strobe.IN1
+in_sign => prev_in_sign.DATAIN
+out_strobe <= out_strobe.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|sort_processor|main_fsm:states_sort_processor
+clk => state_cur~5.DATAIN
+rst => state_cur~7.DATAIN
+rst => always1.IN0
+switch_signal => state_cur.OUTPUTSELECT
+switch_signal => state_cur.OUTPUTSELECT
+switch_signal => state_cur.OUTPUTSELECT
+switch_signal => state_cur.OUTPUTSELECT
+switch_signal => always1.IN1
+current_state[0] <= current_state.DB_MAX_OUTPUT_PORT_TYPE
+current_state[1] <= current_state.DB_MAX_OUTPUT_PORT_TYPE
 
 

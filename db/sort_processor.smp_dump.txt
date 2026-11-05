@@ -1,0 +1,7 @@
+
+State Machine - |sort_processor|main_fsm:states_sort_processor|state_cur
+Name state_cur.Sorting state_cur.Save_nums state_cur.Enter_nums state_cur.S0 
+state_cur.S0 0 0 0 0 
+state_cur.Enter_nums 0 0 1 1 
+state_cur.Save_nums 0 1 0 1 
+state_cur.Sorting 1 0 0 1 
